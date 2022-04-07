@@ -17,7 +17,7 @@ console.log(map1);
 // expected output: Array [2, 8, 18, 32]
 ```
 
-1. En utilisant les fonctions `getCitiesByDept`, `Array.map` et `afficheCommune` stockez dans un tableau `cities74` le nom des villes de Haute-Savoie
+1. En utilisant les fonctions `getCitiesByDept`, `Array.map` et `afficheCommune` stockez dans un tableau `cities74` uniquement le nom des villes de Haute-Savoie
 2. Affichez ce tableau dans la console
 
 ## Exercice 3.2
