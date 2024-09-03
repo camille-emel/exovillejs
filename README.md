@@ -30,6 +30,11 @@ Affichez dans la page HTML la liste des villes du 74, chacune de ces villes sous
 
 Modifiez l'exercice précédent pour permettre de choisir le département que l'on souhaite afficher avec un  `input`  ou un  `select `et ses `options` par exemple). Une fois le département sélectionné vous afficherez chacune des villes dans une [card](https://developer.mozilla.org/fr/docs/Web/CSS/Layout_cookbook/Card)
 
+Vous pourrez avoir besoin de gérer des évenénements : 
+
+- https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event
+- https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+
 ## Exercice 4.4
 
 Créer un dashboard permettant d'explorer les données. Vous pouvez par exemple :
