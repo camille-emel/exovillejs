@@ -1,6 +1,6 @@
 # Manipulation de données/tableaux en JS
 
->**Objectif pédagogique:**
+> **Objectif pédagogique:**
 > Les exercices suivants ont pour but de commencer à générer du HTML coté client.
 
 ## Exercice 4.1
@@ -24,21 +24,23 @@ document.body.appendChild(el);
 
 ## Exercice 4.2
 
-Affichez dans la page HTML la liste des villes du 74 sous forme de div
+Affichez dans la page HTML la liste des villes du 74, chacune de ces villes sous forme de div
 
 ## Exercice 4.3
 
-Modifiez l'exercice précédent pour afficher un `select` et ses `option`s avec ces mêmes villes.
+Modifiez l'exercice précédent pour permettre de choisir le département que l'on souhaite afficher avec un  `input`  ou un  `select `et ses `options` par exemple). Une fois le département sélectionné vous afficherez chacune des villes dans une [card](https://developer.mozilla.org/fr/docs/Web/CSS/Layout_cookbook/Card)
 
-## Exercice 4.4 - bonus
+## Exercice 4.4
 
-1. Modifiez votre code, pour faire une fonction qui va générer un `select` à partir d'une liste d'objets de la forme `{label, value}`.
-2. Utilisez la fonction `Array.map` pour mettre les donnée de l'exercice 4.3 dans ce format (label=nom de la ville, value=code de la ville) puis passez les à votre fonction qui génère un `select`.
+Créer un dashboard permettant d'explorer les données. Vous pouvez par exemple :
+
+1. Créer une barre de recherche permettant de filtrer les villes par nom.
+2. Créer un bouton permettant des trier les villes par ordre alphabétique et/ ou par nombre d'habitants
+3. Créer un [slider](https://www.w3schools.com/howto/howto_js_rangeslider.asp) permettant de n'afficher que les villes ayant un certain nombre d'habitants.
+4. Réflechissez aux options de filtrage et d'affichage qui vous semblent utiles et rajoutez les !
 
 ## Fin
 
 C'est tout...pour le moment.
 
 Retenez bien qu'en décomposant son code en sous-fonctions simples, on en facilite la lecture et la maintenance.
-
-
