@@ -21,6 +21,7 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2lgzYknxZ1hq5vg4wnoSI5Sdq6D" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -68,7 +69,7 @@
       <workItem from="1725616558217" duration="7158000" />
       <workItem from="1725625298560" duration="3310000" />
       <workItem from="1725628684328" duration="647000" />
-      <workItem from="1725629350886" duration="1415000" />
+      <workItem from="1725629350886" duration="1734000" />
     </task>
     <servers />
   </component>
@@ -86,7 +87,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="exo-1" />
+                        <option value="exo-3" />
                       </list>
                     </value>
                   </entry>
