@@ -1,4 +1,7 @@
 console.log(`${cities.length} communes chargées`);
+//exemple obj
+//{"code":"01001","nom":"L'Abergement-Clémenciat",
+// "population":767,"codesPostaux":["01400"],"codeDepartement":"01"}
 
 function ready(callback) {
     if (document.readyState !== 'loading') {
@@ -8,38 +11,59 @@ function ready(callback) {
     }
 }
 
-// insérer votre code ci-dessous
-
-function main() {
+function main(result) {
 // crée en mémoire une structure de données pour stocker un div
-    for(let i = 0; i< cities74.length;i++){
-        const el = document.createElement('div');
-        el.innerHTML = cities74[i].nom;
+    const dumpDiv = document.getElementById('dump')
+    dumpDiv.innerHTML = '';
+    for(let i = 0; i< result.length;i++){
+        const card = createCard(result[i]);
 // insère le div dans le DOM (cela l'affiche)
-        document.body.appendChild(el);}
+        dumpDiv.appendChild(card);}
 
 }
 
 ready(main);
 
-let grandeVille = cities
-    .filter(city => city.population > 300000)
-    .sort((a, b) => a.population - b.population)
-    .map(city => city.nom + " " + city.population);
-
-let cities74 = getCitiesByDept("74");
-console.log(cities74);
+function sortButton() {
+    let recherche = document.getElementById("inputDep").value;
+    // document.getElementById("inputDep").innerText = "";
+    console.log(recherche);
+    let result =  getCitiesByDept(recherche);
+    main(result);
+}
 
 function getCitiesByDept(codeDep) {
     return cities
         .filter(Dep => Dep.codeDepartement === codeDep)
 }
 
+function createCard(city) {
+    const card = document.createElement('div');
+    card.setAttribute('class', 'card'); // Ajout de la classe CSS 'card' pour styliser
+
+    const cityName = document.createElement('h2');
+    cityName.textContent = city.nom;
+    card.appendChild(cityName);
+
+    const cityPopulation = document.createElement('p');
+    cityPopulation.textContent = `Population: ${city.population}`;
+    card.appendChild(cityPopulation);
+
+    const cityPostalCodes = document.createElement('p');
+    cityPostalCodes.textContent = `Code(s) Postal(aux): ${city.codesPostaux.join(', ')}`;
+    card.appendChild(cityPostalCodes);
+
+    const cityDept = document.createElement('p');
+    cityDept.textContent = `Département: ${city.codeDepartement}`;
+    card.appendChild(cityDept);
+
+    return card;
+}
+
 function displayCity(city, numDepartements) {
     return getCitiesByDept(numDepartements)
         .map(city => city.codeDepartement + " - " + city.nom);
 }
-
 
 function getCityByName(name) {
     return cities
@@ -55,3 +79,8 @@ function nombreHabbitantDep(numeroDepartement) {
 
     return total;
 }
+
+let grandeVille = cities
+    .filter(city => city.population > 300000)
+    .sort((a, b) => a.population - b.population)
+    .map(city => city.nom + " " + city.population);
