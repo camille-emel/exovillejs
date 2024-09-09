@@ -15,21 +15,52 @@ function main(result) {
 // crée en mémoire une structure de données pour stocker un div
     const dumpDiv = document.getElementById('dump')
     dumpDiv.innerHTML = '';
-    for(let i = 0; i< result.length;i++){
+    for (let i = 0; i < result.length; i++) {
         const card = createCard(result[i]);
 // insère le div dans le DOM (cela l'affiche)
-        dumpDiv.appendChild(card);}
+        dumpDiv.appendChild(card);
+    }
 
 }
 
 ready(main);
 
+
+
 function sortButton() {
-    let recherche = document.getElementById("inputDep").value;
-    // document.getElementById("inputDep").innerText = "";
-    console.log(recherche);
-    let result =  getCitiesByDept(recherche);
+    let rechercheDep = document.getElementById("inputDep").value;
+    let rechercheCity = document.getElementById("inputCity").value.trim().toLowerCase();
+    //Useless ??
+    if (rechercheCity.length > 0 && rechercheDep.length > 0) {
+        result = getCity_Dep(rechercheCity, rechercheDep);
+    }
+
+    else if (rechercheDep.length > 0) {
+        result = getCitiesByDept(rechercheDep);
+    } else if (rechercheCity.length > 0) {
+        result = getCityByName(rechercheCity);
+    }
+    //ne marche pas ???
+    else {
+        result = cities;
+    }
+    let sortOptionElement = document.querySelector('input[name="sortOption"]:checked');
+    if (sortOptionElement) {
+        sort(result, sortOptionElement.id);
+    }
+    console.log(result);
     main(result);
+}
+
+function getCityByName(name) {
+    return cities
+        .filter(city => city.nom.trim().toLowerCase() === name)
+}
+
+function getCity_Dep(cityName, codeDep) {
+    return cities
+        .filter(city => city.codeDepartement === codeDep)
+        .filter(city => city.nom.trim().toLowerCase() === cityName)
 }
 
 function getCitiesByDept(codeDep) {
@@ -65,10 +96,23 @@ function displayCity(city, numDepartements) {
         .map(city => city.codeDepartement + " - " + city.nom);
 }
 
-function getCityByName(name) {
-    return cities
-        .filter(city => city.nom === name)
+function sort(liste, sortOption) {
+    switch (sortOption) {
+        case "habAsc":
+            liste.sort((a, b) => a.population - b.population);
+            break;
+        case "habDesc":
+            liste.sort((a, b) => b.population - a.population);
+            break;
+        case "alphab":
+            liste.sort((a, b) => a.nom.localeCompare(b.nom));
+            break;
+        case "alphab2":
+            liste.sort((a, b) => b.nom.localeCompare(a.nom));
+            break;
+    }
 }
+
 
 function nombreHabbitantDep(numeroDepartement) {
     let total = 0;
