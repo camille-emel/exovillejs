@@ -48,7 +48,7 @@ function sortButton() {
     if (sortOptionElement) {
         sort(result, sortOptionElement.id);
     }
-    console.log(result);
+    // console.log(result);
     main(result);
 }
 
